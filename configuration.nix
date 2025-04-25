@@ -6,6 +6,7 @@
         ./users
         ./components
         ./apps
+        ./components/jovian.nix
     ];
 
     components.networking.hostName = "nixos-vm";
