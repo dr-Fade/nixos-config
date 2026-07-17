@@ -1,0 +1,49 @@
+{
+    "layer": "top",
+    "reload_style_on_change": true,
+    "position": "left",
+    "spacing": 12,
+    "modules-left": [
+        "hyprland/workspaces",
+    ],
+    "modules-center": [
+        "clock",
+    ],
+    "modules-right": [
+        "hyprland/language",
+        "tray",
+    ],
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "󰖟",
+            "2": "󰆍",
+            "3": "󰇄",
+            "4": "󰝚",
+            "5": "󰓓",
+        },
+        "persistent-workspaces": {
+            "*": 5
+        },
+        "on-click": "activate",
+    },
+    "clock": {
+        "format": "{:%H\n%M\n\n%d\n%m}",
+        "interval": 60,
+        "tooltip-format": "<span size='16pt' font='NotoSansM Nerd Font Mono Regular'>{calendar}</span>",
+        "calendar": {
+            "format": {
+                "today": "<span color='#81a1c1'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+    "tray": {
+        "spacing": 6,
+    	"icon-size": 24
+    },
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "🇬🇧",
+        "format-uk": "🇺🇦"
+    }
+}
