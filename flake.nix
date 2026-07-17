@@ -7,16 +7,34 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: {
+  outputs = { self, nixpkgs, home-manager, ... }: let
+    hmBase = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
+    };
+  in {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit self; };
       modules = [
         ./hosts/default/configuration.nix
         home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.eugene = import ./modules/home/default.nix;
+          home-manager = hmBase // {
+            users.eugene = import ./modules/shared/default-home.nix;
+          };
+        }
+      ];
+    };
+
+    nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = { inherit self; };
+      modules = [
+        ./hosts/laptop/configuration.nix
+        home-manager.nixosModules.home-manager {
+          home-manager = hmBase // {
+            users.eugene = import ./modules/shared/laptop-home.nix;
+          };
         }
       ];
     };
