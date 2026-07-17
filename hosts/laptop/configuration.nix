@@ -4,7 +4,4 @@
     ../../modules/nixos/hyprland.nix
     # ../../hardware-configuration.nix # Add once generated on laptop
   ];
-
-  # Override hostname for laptop
-  networking.hostName = "nixos-laptop";
 }

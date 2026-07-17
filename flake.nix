@@ -13,14 +13,14 @@
       useUserPackages = true;
     };
   in {
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.pc = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit self; };
+      specialArgs = { inherit self; name = "nixos-pc"; };
       modules = [
-        ./hosts/default/configuration.nix
+        ./hosts/pc/configuration.nix
         home-manager.nixosModules.home-manager {
           home-manager = hmBase // {
-            users.eugene = import ./modules/shared/default-home.nix;
+            users.eugene = import ./modules/shared/pc-home.nix;
           };
         }
       ];
@@ -28,7 +28,7 @@
 
     nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit self; };
+      specialArgs = { inherit self; name = "nixos-laptop"; };
       modules = [
         ./hosts/laptop/configuration.nix
         home-manager.nixosModules.home-manager {

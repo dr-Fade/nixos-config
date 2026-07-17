@@ -1,12 +1,13 @@
 { pkgs, ... }: {
-  # Laptop: basic apps + Hyprland (no creative/work extras)
   imports = [
     ./user-common.nix
     ../home/packages/browser.nix
-    ../home/packages/desktop.nix      # waybar, hyprpaper, rofi, swaync etc.
+    ../home/packages/creative.nix
+    ../home/packages/desktop.nix
     ../home/packages/editors.nix
     ../home/packages/file-manager.nix
     ../home/packages/terminal.nix
+    ../home/packages/work.nix
     ../home/desktop/hyprland.nix
     ../home/desktop/waybar.nix
     ../home/desktop/rofi.nix

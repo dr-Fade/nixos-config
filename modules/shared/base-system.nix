@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, name ? "nixos", ... }: {
   imports = [
     ../nixos/locale.nix
     ../nixos/networking.nix
@@ -6,6 +6,9 @@
   ];
 
   # Bootloader (UEFI systems)
+  # Hostname derived from flake target (specialArgs)
+  networking.hostName = name;
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
