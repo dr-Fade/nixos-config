@@ -3,7 +3,6 @@
     kitty
     tmux
     htop
-    nvtop
     less
     unzip
     ripgrep
