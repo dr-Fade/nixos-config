@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    brave
+    firefox
     telegram-desktop
   ];
 }

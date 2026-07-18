@@ -10,5 +10,10 @@
 
   programs.bash.enable = true;
 
+  programs.pi-coding-agent = {
+    enable = true;
+    extraPackages = with pkgs; [ nodejs bun ];
+  };
+
   home.stateVersion = "24.11";
 }
