@@ -3,8 +3,7 @@
     # Wayland / UI runtime deps
     waybar
     hyprpaper
-    rofi-wayland
-    swaync
+    rofi
     gammastep
     nwg-look
 
@@ -14,7 +13,6 @@
 
     # Fonts & theme
     nerd-fonts.fira-code
-    waybar-native-package
     nordic
   ];
 }
