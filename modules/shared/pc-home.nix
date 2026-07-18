@@ -9,6 +9,7 @@
     ../home/packages/terminal.nix
     ../home/packages/work.nix
     ../home/desktop/hyprland.nix
+    ../home/desktop/dms-hyprland.nix
     ../home/desktop/theme.nix
     ../home/terminal/kitty.nix
     ../home/terminal/tmux.nix
@@ -22,11 +23,6 @@
     enable = true;
     systemd.enable = true;
   };
-
-  # Include DMS keybind overrides (written to ~/.config/hypr/dms/)
-  wayland.windowManager.hyprland.extraConfig = ''
-    include = ~/.config/hypr/dms/*
-  '';
 
   # Wallpapers
   home.file.".local/share/backgrounds".source = ../home/wallpapers;

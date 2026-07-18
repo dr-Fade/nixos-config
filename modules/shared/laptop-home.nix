@@ -8,6 +8,7 @@
     ../home/packages/file-manager.nix
     ../home/packages/terminal.nix
     ../home/desktop/hyprland.nix
+    ../home/desktop/dms-hyprland.nix
     ../home/desktop/theme.nix
     ../home/terminal/kitty.nix
     ../home/terminal/tmux.nix
@@ -22,8 +23,5 @@
     systemd.enable = true;
   };
 
-  # Include DMS keybind overrides (written to ~/.config/hypr/dms/)
-  wayland.windowManager.hyprland.extraConfig = ''
-    include = ~/.config/hypr/dms/*
-  '';
+
 }
