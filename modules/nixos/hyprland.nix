@@ -5,7 +5,7 @@
     xwayland.enable = true;
   };
 
-  # Display manager: greetd with ReGreet (recommended DM for Hyprland per NixOS wiki)
+  # ReGreet greeter for greetd — auto-discovers hyprland session
   programs.regreet.enable = true;
 
   # Essential runtime deps that need OS-level presence

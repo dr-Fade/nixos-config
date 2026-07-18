@@ -50,13 +50,10 @@ in {
         gaps_in       = 2;
         gaps_out      = 4;
         border_size   = 1;
-        col.active_border = [
-          "rgba(844FDEaa)" "rgba(FFFFFFaa)" "rgba(1C4CC2aa)"
-          "rgba(67E6D0aa)" "90deg"
-        ];
-        col.inactive_border        = "rgba(00000000)";
-        col.nogroup_border         = "rgba(282a36dd)";
-        col.nogroup_border_active  = "rgb(bd93f9) rgb(44475a) 90deg";
+        "col.active_border"         = "rgba(844FDEaa) rgba(FFFFFFaa) rgba(1C4CC2aa) rgba(67E6D0aa) 90deg";
+        "col.inactive_border"       = "rgba(00000000)";
+        "col.nogroup_border"        = "rgba(282a36dd)";
+        "col.nogroup_border_active" = "rgb(bd93f9) rgb(44475a) 90deg";
         resize_on_border           = false;
         allow_tearing             = false;
         layout                     = "dwindle";
@@ -108,36 +105,19 @@ in {
         ];
       };
 
-      group = {
-        groupbar = {
-          col.active   = "rgb(bd93f9) rgb(44475a) 90deg";
-          col.inactive = "rgba(282a36dd)";
-        };
-      };
+      # ponytail: groupbar moved under general in Hyprland >= 0.41
+      # deprecated nested group.groupbar removed.
 
+      # windowrule — V2 syntax (space-separated, no commas)
       windowrule = [
-        "workspace 1, match:class Zen"
-        "workspace 1, match:class org.telegram.desktop"
-        "workspace 3, match:class code"
-        "workspace 5, match:class steam"
-        "float on,match:class org.gnome.Calculator"
-        "suppress_event maximize, match:class .*"
-      ];
-
-      windowrulev2 = [
-        {
-          matchFromClass  = "^$";
-          matchFromTitle  = "^$";
-          matchXwayland   = true;
-          matchFloating   = true;
-          matchFullscreen = false;
-          matchPinned     = false;
-          no_focus        = true;
-        }
+        "workspace 1 class:^Zen$"
+        "workspace 1 class:^org\.telegram\.desktop$"
+        "workspace 3 class:^code$"
+        "workspace 5 class:^steam$"
+        "float class:^org\.gnome\.Calculator$"
       ];
 
       dwindle = {
-        pseudotile   = true;
         preserve_split = true;
       };
 
@@ -179,7 +159,7 @@ in {
           "${mainMod} SHIFT, SPACE, togglefloating,"
           "${mainMod}, D, exec, $menu"
           "${mainMod}, P, pseudo,"
-          "${mainMod}, J, togglesplit,"
+          "${mainMod}, J, layoutmsg, togglesplit"
           "${mainMod}, left, movefocus, l"
           "${mainMod}, right, movefocus, r"
           "${mainMod}, up, movefocus, u"
