@@ -1,11 +1,8 @@
 { pkgs, ... }: {
-  # NeoVim is too complex for a simple settings attr (pure Lua setup)
-  # We use the source option to link the whole config directory.
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-  };
+  # Full LazyVim setup — managed entirely via symlinked config directory.
+  # programs.neovim is NOT used because it generates .config/nvim/init.lua
+  # which conflicts with the recursive symlink below.
+  home.packages = [ pkgs.neovim ];
 
   home.file.".config/nvim".source = ./nvim;
 }

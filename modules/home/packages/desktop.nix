@@ -3,7 +3,6 @@
     # Wayland / UI runtime deps
     waybar
     hyprpaper
-    rofi
     gammastep
     nwg-look
 
