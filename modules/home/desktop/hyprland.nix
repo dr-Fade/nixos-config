@@ -2,7 +2,7 @@
   mainMod = "SUPER";
   terminal = "kitty";
   fileManager = "thunar";
-  menu = "rofi -show drun -theme nord -show-icons";
+  menu = "dms ipc call spotlight open";
 
   # Generate workspace binds for 1–9 and 0→10
   wsBinds = lib.concatMap (n: let
@@ -33,7 +33,6 @@ in {
         "hyprpm reload -n"
         "systemctl --user start hyprpolkitagent"
         "gammastep-indicator -t 6000:4000 -l 48.47:35.00"
-        "waybar"
         "nm-applet"
         "zen-browser"
         "[workspace 2] $terminal"
@@ -200,23 +199,7 @@ in {
     };
   };
 
-  # Hyprpaper HM service — auto-starts via hyprland-session.target
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      preload = "/home/eugene/Pictures/luna-stream-wall-7680x2160_black.png";
-      splash  = false;
-      wallpaper = [
-        {
-          monitor = "DP-2";
-          path    = "/home/eugene/Pictures/luna-stream-wall-7680x2160_black.png";
-        }
-      ];
-    };
-  };
 
-  # SwayNC notification daemon — auto-started via hyprland-session.target
-  services.swaync = {
-    enable = true;
-  };
+
+
 }

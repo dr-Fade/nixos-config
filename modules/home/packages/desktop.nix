@@ -1,8 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     # Wayland / UI runtime deps
-    waybar
-    hyprpaper
     gammastep
     nwg-look
 
